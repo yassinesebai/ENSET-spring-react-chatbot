@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: rag-chatbot
+  ai:
+    ollama:
+      chat:
+        model: llama3
+      base-url: http://localhost:11434
+    openai:
+      api-key: ${OPEN_AI_KEY}
+      chat:
+        options:
+          model: gpt-4o
+  docker:
+    compose:
+      enabled: false
+      #lifecycle-management: start_only
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cv-store
+    username: ${USERNAME}
+    password: ${PASSWORD}
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: true
+server:
+  port: 8080
